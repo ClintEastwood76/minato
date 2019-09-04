@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  session;
+
+  constructor(sessionService: SessionService) {
+    console.log("Costruttore " + sessionService);
+    this.session = sessionService;
+  }
 
   ngOnInit() {
+    //console.log(this.sessionService);
+    //logged = true;
+  }
+
+  isLogged() {
+    return this.session.isLogged();
+  }
+
+  switch() {
+    console.log('switching');
+    this.session.switchLog();
   }
 
 }

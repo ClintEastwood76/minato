@@ -1,3 +1,16 @@
-<p>
-  header works!
-</p>
+<a [routerLink]="['/']">
+  <h1>Project Minato</h1>
+
+</a>
+
+<div *ngIf="isLogged(); else loggedOut">
+  Welcome back, friend.
+</div>
+
+<ng-template #loggedOut>
+  Please friend, login.
+</ng-template>
+
+<button (click)="switch()">
+   Switch
+ </button>

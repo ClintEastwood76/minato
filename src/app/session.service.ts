@@ -5,7 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
 
-  logged: boolean = false;
+  logged: boolean = true;
 
   constructor() { }
+
+  isLogged() {
+    return this.logged;
+  }
+
+  switchLog() {
+    console.log('switching');
+    this.logged = !this.logged;
+  }
 }
