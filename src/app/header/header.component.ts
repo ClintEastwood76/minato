@@ -24,9 +24,9 @@ export class HeaderComponent implements OnInit {
     return this.session.isLogged();
   }
 
-  switch() {
-    console.log('switching');
-    this.session.switchLog();
+  logout() {
+    console.log('logging out');
+    this.session.logout();
   }
 
 }

@@ -13,8 +13,8 @@ export class SessionService {
     return this.logged;
   }
 
-  switchLog() {
-    console.log('switching');
-    this.logged = !this.logged;
+  logout() {
+    console.log('logging out');
+    this.logged = false;
   }
 }
