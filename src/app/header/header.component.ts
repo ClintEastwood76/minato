@@ -11,7 +11,6 @@ export class HeaderComponent implements OnInit {
   session;
 
   constructor(sessionService: SessionService) {
-    console.log("Costruttore " + sessionService);
     this.session = sessionService;
   }
 
