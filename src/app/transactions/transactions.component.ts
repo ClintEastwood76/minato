@@ -21,7 +21,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   getTransactions() {
-    this.transactionService.getTransactions();
+    console.log(this.transactionService.getTransactions());
   }
 
 }
