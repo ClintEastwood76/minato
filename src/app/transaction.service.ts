@@ -13,11 +13,8 @@ export class TransactionService {
   ) {}
 
   getTransactions() {
-    return this.http.get('/assets/transactions.json');
-  }
-
-  getShippingPrices() {
-    return this.http.get('/assets/shipping.json');
+    //return this.http.get('/assets/transactions.json');
+    return this.http.get('http://localhost:8080/transactions');
   }
 
 }
