@@ -10,7 +10,7 @@ import { TransactionService } from '../transaction.service';
 })
 export class TransactionsComponent implements OnInit {
 
-  tService;
+  transactions;
 
   constructor(private transactionService: TransactionService) {
 
@@ -21,7 +21,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   getTransactions() {
-    console.log(this.transactionService.getTransactions());
+    this.transactions = this.transactionService.getTransactions();
   }
 
 }
