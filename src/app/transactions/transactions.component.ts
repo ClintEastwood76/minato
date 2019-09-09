@@ -13,7 +13,7 @@ export class TransactionsComponent implements OnInit {
   tService;
 
   constructor(private transactionService: TransactionService) {
-    this.tService = transactionService;
+
   }
 
   ngOnInit() {
