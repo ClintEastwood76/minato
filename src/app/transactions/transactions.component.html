@@ -1,6 +1,8 @@
 <p>
-  transactions works!
+  transactions works!!!
 </p>
-<button (click)="getTransactions()" >
-  Try
-</button>
+
+<div *ngFor="let transaction of transactions | async">
+  <span>{{ transaction.desc }}</span>
+  <span>{{ transaction.owner }}</span>
+</div>

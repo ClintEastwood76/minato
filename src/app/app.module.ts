@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,13 +26,12 @@ import { TransactionsComponent } from './transactions/transactions.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent },
-      { path: 'trxs', component: TransactionsComponent },
-
+      { path: 'trxs', component: TransactionsComponent }
     ])
   ],
   providers: [SessionService, TransactionService],

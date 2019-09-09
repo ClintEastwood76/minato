@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { TransactionService } from '../transaction.service';
 
 @Component({
@@ -12,15 +10,9 @@ export class TransactionsComponent implements OnInit {
 
   transactions;
 
-  constructor(private transactionService: TransactionService) {
-
-  }
+  constructor(private transactionService: TransactionService) { }
 
   ngOnInit() {
-
-  }
-
-  getTransactions() {
     this.transactions = this.transactionService.getTransactions();
   }
 

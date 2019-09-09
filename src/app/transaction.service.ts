@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,9 +6,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TransactionService {
 
-  constructor(private http: HttpClient) { }
+  items = [];
+
+  constructor(
+    private http: HttpClient
+  ) {}
 
   getTransactions() {
     return this.http.get('/assets/transactions.json');
   }
+
+  getShippingPrices() {
+    return this.http.get('/assets/shipping.json');
+  }
+
 }
