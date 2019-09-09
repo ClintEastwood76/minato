@@ -9,13 +9,11 @@ import { SessionService } from './session.service';
 })
 export class AppComponent {
   title = 'minato';
-  session;
 
-  constructor(sessionService: SessionService) {
-    this.session = sessionService;
+  constructor(private sessionService: SessionService) {
   }
 
   isLogged() {
-    return this.session.isLogged();
+    return this.sessionService.isLogged();
   }
 }

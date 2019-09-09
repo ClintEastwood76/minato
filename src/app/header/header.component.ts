@@ -8,24 +8,21 @@ import { SessionService } from '../session.service';
 })
 export class HeaderComponent implements OnInit {
 
-  session;
+  constructor(private sessionService: SessionService) {
 
-  constructor(sessionService: SessionService) {
-    this.session = sessionService;
   }
 
   ngOnInit() {
-    //console.log(this.sessionService);
+    console.log(this.sessionService);
     //logged = true;
   }
 
   isLogged() {
-    return this.session.isLogged();
+    return this.sessionService.isLogged();
   }
 
   logout() {
-    console.log('logging out');
-    this.session.logout();
+    this.sessionService.logout();
   }
 
 }

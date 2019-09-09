@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
 import { SessionService } from './session.service';
+import { TransactionService } from './transaction.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
@@ -32,7 +33,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 
     ])
   ],
-  providers: [SessionService],
+  providers: [SessionService, TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

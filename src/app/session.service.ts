@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
 
-  logged: boolean = true;
+  logged: boolean = false;
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class SessionService {
   login(user, password) {
     console.log("Logging in...", user, password);
     if ('edo' == user) {
-        this.logged = true;
+      this.logged = true;
     }
   }
 }
