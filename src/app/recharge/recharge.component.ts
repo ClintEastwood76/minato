@@ -1,19 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RECHARGE } from '../domain/mock-recharge';
+import { RechargeService } from '../recharge.service';
+import { Recharge } from '../domain/recharge';
 
 @Component({
   selector: 'app-recharge',
   templateUrl: './recharge.component.html',
   styleUrls: ['./recharge.component.css']
 })
+
 export class RechargeComponent implements OnInit {
 
-  recharges = RECHARGE;
-  
-  constructor() { }
+  recharges : Recharge[];
+
+  constructor(private rechargeService: RechargeService) { }
 
   ngOnInit() {
+    this.getRecharges();
   }
 
+  getRecharges(): void {
+    this.recharges = this.rechargeService.getRecharge();
+  }
 }
