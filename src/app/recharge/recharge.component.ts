@@ -20,6 +20,7 @@ export class RechargeComponent implements OnInit {
   }
 
   getRecharges(): void {
-    this.recharges = this.rechargeService.getRecharge();
-  }
+    this.rechargeService.getRecharges()
+      .subscribe(recharges => this.recharges = recharges);
+}
 }
