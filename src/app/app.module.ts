@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { RechargeComponent } from './recharge/recharge.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     LoginComponent,
     DashboardComponent,
     MenuComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    RechargeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     AppRoutingModule,
     RouterModule.forRoot([
       { path: '', component: DashboardComponent },
-      { path: 'trxs', component: TransactionsComponent }
+      { path: 'trxs', component: TransactionsComponent },
+      { path: 'recharge', component: RechargeComponent }
     ])
   ],
   providers: [SessionService, TransactionService],
