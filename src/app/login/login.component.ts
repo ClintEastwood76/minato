@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(loginData) {
     // Process checkout data here
-    console.warn('Logging in...', loginData);
     this.sessionService.login(loginData.username, loginData.password);
     this.loginForm.reset();
   }

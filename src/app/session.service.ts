@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class SessionService {
 
   logged: boolean = false;
+  user : string;
 
   constructor() { }
 
@@ -14,13 +15,12 @@ export class SessionService {
   }
 
   logout() {
-    console.log('logging out');
     this.logged = false;
   }
 
   login(user, password) {
-    console.log("Logging in...", user, password);
     if ('edo' == user) {
+      this.user = user;
       this.logged = true;
     }
   }

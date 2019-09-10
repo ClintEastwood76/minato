@@ -10,12 +10,11 @@ import { Recharge } from './domain/recharge';
 })
 export class RechargeService {
 
-  private rechargesUrl = 'http://localhost:8080/recharges?owner=edo';
+  private rechargesUrl = 'http://localhost:8080/recharges?owner=';
 
   constructor(private http: HttpClient) { }
 
-  getRecharges(): Observable<Recharge[]> {
-    //return of(RECHARGE);
-    return this.http.get<Recharge[]>(this.rechargesUrl)
+  getRecharges(user): Observable<Recharge[]> {
+    return this.http.get<Recharge[]>(this.rechargesUrl + user)
   }
 }
