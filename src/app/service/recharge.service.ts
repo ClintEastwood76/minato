@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { RECHARGE } from './domain/mock-recharge';
-import { Recharge } from './domain/recharge';
+import { RECHARGE } from '../domain/mock-recharge';
+import { Recharge } from '../domain/recharge';
 
 @Injectable({
   providedIn: 'root'

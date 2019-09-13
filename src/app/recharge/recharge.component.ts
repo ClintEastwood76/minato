@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RechargeService } from '../recharge.service';
+import { RechargeService } from '../service/recharge.service';
 import { Recharge } from '../domain/recharge';
 
 @Component({

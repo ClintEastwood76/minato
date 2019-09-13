@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
-import { SessionService } from './session.service';
-import { TransactionService } from './transaction.service';
-import { RechargeService } from './recharge.service';
+import { SessionService } from './service/session.service';
+import { TransactionService } from './service/transaction.service';
+import { RechargeService } from './service/recharge.service';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';

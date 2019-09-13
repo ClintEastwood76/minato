@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
-import { SessionService } from '../session.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-login',
