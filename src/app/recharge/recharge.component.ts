@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../session.service';
 
 import { RechargeService } from '../service/recharge.service';
 import { Recharge } from '../domain/recharge';
@@ -13,13 +14,15 @@ export class RechargeComponent implements OnInit {
 
   recharges : Recharge[];
 
-  constructor(private rechargeService: RechargeService) { }
+  constructor(private rechargeService: RechargeService,
+              private sessionService: SessionService) { }
 
   ngOnInit() {
     this.getRecharges();
   }
 
   getRecharges(): void {
-    this.recharges = this.rechargeService.getRecharge();
-  }
+    this.rechargeService.getRecharges(this.sessionService.user)
+      .subscribe(recharges => this.recharges = recharges);
+}
 }

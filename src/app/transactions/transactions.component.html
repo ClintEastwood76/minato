@@ -2,9 +2,6 @@
   transactions works!!!
 </p>
 
-<div *ngFor="let transaction of transactions | async">
-  <span>{{ transaction.desc }}</span>
-  <span>{{ transaction.owner }}</span>
-  <span>{{ transaction.date }}</span>
-
-</div>
+<li *ngFor="let transaction of transactions">
+  <span class="badge">{{transaction.owner}}</span> {{transaction.desc}}
+</li>

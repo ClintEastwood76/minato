@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { TransactionService } from '../service/transaction.service';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-transactions',
@@ -8,12 +10,18 @@ import { TransactionService } from '../service/transaction.service';
 })
 export class TransactionsComponent implements OnInit {
 
-  transactions;
+  transactions : Transaction[];
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService,
+              private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.transactions = this.transactionService.getTransactions();
+    this.getTransactions();
+  }
+
+  getTransactions() : void {
+    this.transactionService.getTransactions(this.sessionService.user)
+      .subscribe(transactions => this.transactions = transactions);
   }
 
 }

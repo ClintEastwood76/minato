@@ -12,10 +12,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    console.log(this.sessionService);
-    //logged = true;
-  }
+  ngOnInit() {}
 
   isLogged() {
     return this.sessionService.isLogged();
