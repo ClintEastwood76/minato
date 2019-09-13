@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../service/transaction.service';
 import { SessionService } from '../service/session.service';
 
+import { Transaction } from '../domain/transaction';
+
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',

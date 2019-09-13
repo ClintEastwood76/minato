@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../session.service';
+import { SessionService } from '../service/session.service';
 
 import { RechargeService } from '../service/recharge.service';
 import { Recharge } from '../domain/recharge';
