@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { SessionService } from './service/session.service';
-
 
 @Component({
   selector: 'app-root',
@@ -10,10 +8,13 @@ import { SessionService } from './service/session.service';
 export class AppComponent {
   title = 'minato';
 
-  constructor(private sessionService: SessionService) {
+  constructor() {
   }
 
   isLogged() {
-    return this.sessionService.isLogged();
+    // return localStorage.getItem('currentUser').token != null;
+    // let logged = localStorage.getItem('currentUser');
+    let user = JSON.parse(localStorage.getItem('currentUser'));
+    return (user != null && user.token != null);
   }
 }

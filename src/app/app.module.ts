@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 
-import { SessionService } from './service/session.service';
 import { TransactionService } from './service/transaction.service';
 import { RechargeService } from './service/recharge.service';
+import { AuthenticationService } from './service/authentication.service';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -39,7 +39,7 @@ import { RechargeComponent } from './recharge/recharge.component';
       { path: 'recharge', component: RechargeComponent }
     ])
   ],
-  providers: [SessionService, TransactionService, RechargeService],
+  providers: [TransactionService, RechargeService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

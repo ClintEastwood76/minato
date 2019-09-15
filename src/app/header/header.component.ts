@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +7,19 @@ import { SessionService } from '../service/session.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private sessionService: SessionService) {
+  constructor() {
 
   }
 
   ngOnInit() {}
 
   isLogged() {
-    return this.sessionService.isLogged();
+    let user = JSON.parse(localStorage.getItem('currentUser'));
+    return (user != null && user.token != null);
   }
 
   logout() {
-    this.sessionService.logout();
+    localStorage.clear();
   }
 
 }

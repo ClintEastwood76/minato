@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
-import { SessionService } from '../service/session.service';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,25 +10,25 @@ import { SessionService } from '../service/session.service';
 })
 export class LoginComponent implements OnInit {
 
-  sessionService;
   loginForm;
   errorMessage;
 
   constructor(private formBuilder: FormBuilder,
-    sessionService: SessionService) {
+    private authenticationService: AuthenticationService
+  ) {
     this.loginForm = this.formBuilder.group({
       username: '',
       password: ''
     });
-    this.sessionService = sessionService;
   }
 
   ngOnInit() {
   }
 
   onSubmit(loginData) {
-    // Process checkout data here
-    this.sessionService.login(loginData.username, loginData.password);
+    this.authenticationService.login(loginData.username, loginData.password)
+    .subscribe(
+        data => {});
     this.loginForm.reset();
   }
 
