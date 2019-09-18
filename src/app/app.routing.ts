@@ -7,7 +7,8 @@ import { RechargeComponent } from './recharge/recharge.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'trxs', component: TransactionsComponent },
-  { path: 'recharge', component: RechargeComponent }
+  { path: 'recharge', component: RechargeComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 export const appRoutingModule = RouterModule.forRoot(routes);

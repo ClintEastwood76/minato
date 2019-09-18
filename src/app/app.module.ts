@@ -21,6 +21,8 @@ import { RechargeComponent } from './recharge/recharge.component';
 import { JwtInterceptor } from './helpers/jwt-interceptor';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 
+import { appRoutingModule } from './app.routing';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +38,7 @@ import { ErrorInterceptor } from './helpers/error-interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RouterModule.forRoot([
-      { path: '', component: DashboardComponent },
-      { path: 'trxs', component: TransactionsComponent },
-      { path: 'recharge', component: RechargeComponent }
-    ])
+    appRoutingModule
   ],
   providers: [TransactionService, RechargeService, AuthenticationService,
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
