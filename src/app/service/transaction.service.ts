@@ -19,7 +19,6 @@ export class TransactionService {
   ) {}
 
   getTransactions(user): Observable<Transaction[]> {
-    console.log(user);
     return this.http.get<Transaction[]>(this.transactionUrl + user);
   }
 

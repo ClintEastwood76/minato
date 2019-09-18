@@ -16,4 +16,7 @@
 
   <button class="button" type="submit">Login</button>
 
+  <span *ngIf="wrongCredentials">
+    <div>Credenziali errate</div>
+  </span>
 </form>

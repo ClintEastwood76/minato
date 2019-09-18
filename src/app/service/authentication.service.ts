@@ -33,7 +33,6 @@ export class AuthenticationService {
                 this.currentUserSubject.next(user);
                 return user;
             }));
-       console.log('logging in 2...');
     }
 
     logout() {

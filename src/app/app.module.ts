@@ -19,6 +19,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { RechargeComponent } from './recharge/recharge.component';
 
 import { JwtInterceptor } from './helpers/jwt-interceptor';
+import { ErrorInterceptor } from './helpers/error-interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,10 @@ import { JwtInterceptor } from './helpers/jwt-interceptor';
     ])
   ],
   providers: [TransactionService, RechargeService, AuthenticationService,
-               { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
+          { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+          // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+             ],
   bootstrap: [AppComponent]
 
 
