@@ -3,5 +3,7 @@
 </p>
 
 <li *ngFor="let transaction of transactions">
-  <span class="badge">{{transaction.owner}}</span> {{transaction.desc}}
+  <a routerLink="/trx/{{transaction._id}}">
+    <span> {{transaction.desc}}</span>
+  </a>
 </li>

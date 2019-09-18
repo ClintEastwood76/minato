@@ -22,6 +22,7 @@ import { JwtInterceptor } from './helpers/jwt-interceptor';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 
 import { appRoutingModule } from './app.routing';
+import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { appRoutingModule } from './app.routing';
     DashboardComponent,
     MenuComponent,
     TransactionsComponent,
-    RechargeComponent
+    RechargeComponent,
+    TransactionDetailComponent
   ],
   imports: [
     BrowserModule,
