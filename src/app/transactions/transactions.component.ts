@@ -19,7 +19,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   getTransactions() : void {
-    this.transactionService.getTransactions(JSON.parse(localStorage.getItem('currentUser')).username)
+    this.transactionService.getTransactions()
       .subscribe(transactions => this.transactions = transactions);
   }
 

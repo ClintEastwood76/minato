@@ -12,14 +12,14 @@ export class TransactionService {
 
   items = [];
 
-  private transactionUrl = 'http://localhost:8080/transactions?owner=';
+  private transactionUrl = 'http://localhost:8080/transactions';
 
   constructor(
     private http: HttpClient
   ) {}
 
-  getTransactions(user): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.transactionUrl + user);
+  getTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(this.transactionUrl);
   }
 
 }

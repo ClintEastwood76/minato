@@ -20,7 +20,8 @@ export class RechargeComponent implements OnInit {
   }
 
   getRecharges(): void {
-    this.rechargeService.getRecharges(JSON.parse(localStorage.getItem('currentUser')).username)
+    this.rechargeService.getRecharges()
       .subscribe(recharges => this.recharges = recharges);
     }
+
 }
