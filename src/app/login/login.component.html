@@ -1,22 +1,20 @@
+<mat-card>
+
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
 
-  <div>
-    <label for="username">
-      Name
-    </label>
-    <input id="username" type="text" formControlName="username">
-  </div>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="username" formControlName="username">
+  </mat-form-field>
 
-  <div>
-    <label for="password">
-      Password
-    </label>
-    <input id="password" type="text" formControlName="password">
-  </div>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="password" formControlName="password" type="password">
+  </mat-form-field>
 
-  <button class="button" type="submit">Login</button>
+  <button mat-raised-button type="submit">Login</button>
 
   <span *ngIf="wrongCredentials">
     <div>Credenziali errate</div>
   </span>
 </form>
+
+</mat-card>
