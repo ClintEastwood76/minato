@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -23,6 +23,9 @@ import { ErrorInterceptor } from './helpers/error-interceptor';
 
 import { appRoutingModule } from './app.routing';
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { TransactionDetailComponent } from './transaction-detail/transaction-det
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    appRoutingModule
+    appRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
   ],
   providers: [TransactionService, RechargeService, AuthenticationService,
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

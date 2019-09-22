@@ -1,7 +1,16 @@
-<a [routerLink]="['/']">
-  <h1>Project Minato</h1>
-</a>
+<mat-toolbar color="primary">
+  <span>
+    <button mat-button [routerLink]="['/']">
+      <mat-icon title="logout">fastfood</mat-icon>
+      Buono Pasto Elettronico Postumo
+    </button>
+  </span>
 
-<button (click)="logout()" *ngIf="isLogged()">
-  Logout
-</button>
+  <span class="example-fill-remaining-space"></span>
+
+  <span>
+    <button mat-icon-button (click)="logout()" *ngIf="isLogged()">
+      <mat-icon matTooltip="logout">exit_to_app</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
