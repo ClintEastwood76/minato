@@ -52,19 +52,20 @@ export class LoginComponent implements OnInit {
   }
 
   openSnackBar() {
-    this._snackBar.openFromComponent(PizzaPartyComponent, {
+    this._snackBar.openFromComponent(ErrorCredentialsComponent, {
       duration: this.durationInSeconds * 1000,
     });
+
   }
 }
 
 @Component({
-  selector: 'snack-bar-component-example-snack',
-  templateUrl: 'snack-bar-component-example-snack.html',
+  selector: 'error-snackbar',
+  templateUrl: 'error-snackbar.html',
   styles: [`
     .example-pizza-party {
-      color: hotpink;
+      color: orange;
     }
   `],
 })
-export class PizzaPartyComponent {}
+export class ErrorCredentialsComponent {}

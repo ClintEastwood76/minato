@@ -12,7 +12,7 @@ import { TransactionService } from './service/transaction.service';
 import { RechargeService } from './service/recharge.service';
 import { AuthenticationService } from './service/authentication.service';
 
-import { LoginComponent, PizzaPartyComponent } from './login/login.component';
+import { LoginComponent, ErrorCredentialsComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
 import { TransactionsComponent } from './transactions/transactions.component';
@@ -32,7 +32,7 @@ import { AngularMaterialModule } from './angular-material.module';
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    PizzaPartyComponent,
+    ErrorCredentialsComponent,
     DashboardComponent,
     MenuComponent,
     TransactionsComponent,
@@ -49,7 +49,7 @@ import { AngularMaterialModule } from './angular-material.module';
     AngularMaterialModule,
   ],
   entryComponents: [
-    PizzaPartyComponent,
+    ErrorCredentialsComponent,
   ],
   providers: [TransactionService, RechargeService, AuthenticationService,
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
