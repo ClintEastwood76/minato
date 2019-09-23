@@ -52,10 +52,16 @@ export class LoginComponent implements OnInit {
   }
 
   openSnackBar() {
-    this._snackBar.openFromComponent(ErrorCredentialsComponent, {
+    /*this._snackBar.openFromComponent(ErrorCredentialsComponent, {
       duration: this.durationInSeconds * 1000,
     });
-
+    */
+    let sbRef = this._snackBar.open('Credenziali errate', 'Recupera!', {
+      duration: 3000
+    });
+    sbRef.onAction().subscribe(() => {
+      alert('vai alla pagina del recupero credenziali');
+    })
   }
 }
 
