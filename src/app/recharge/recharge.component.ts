@@ -13,6 +13,8 @@ export class RechargeComponent implements OnInit {
 
   recharges : Recharge[];
 
+  columnsToDisplay = ['code', 'owner'];
+
   constructor(private rechargeService: RechargeService) { }
 
   ngOnInit() {

@@ -1,6 +1,21 @@
 <h2>Ricariche!!!</h2>
-<ul class="heroes">
+<!-- <ul class="heroes">
   <li *ngFor="let recharge of recharges">
     <span class="badge">{{recharge.owner}}</span> {{recharge.code}}
   </li>
-</ul>
+</ul> -->
+
+<table mat-table [dataSource]="recharges">
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> Codice </th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="owner">
+    <th mat-header-cell *matHeaderCellDef> Titolare </th>
+    <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>
