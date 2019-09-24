@@ -11,15 +11,30 @@
     <td mat-cell *matCellDef="let element"> {{element.code}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="owner">
-    <th mat-header-cell *matHeaderCellDef> Titolare </th>
-    <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+  <ng-container matColumnDef="validFrom">
+    <th mat-header-cell *matHeaderCellDef> Data Emissione </th>
+    <td mat-cell *matCellDef="let element"> {{element.validFrom | date : "dd.MM.y" }}  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="validThru">
+    <th mat-header-cell *matHeaderCellDef> Data Scadenza </th>
+    <td mat-cell *matCellDef="let element"> {{element.validThru | date : "dd.MM.y" }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="length">
+    <th mat-header-cell *matHeaderCellDef> Numero buoni </th>
+    <td mat-cell *matCellDef="let element"> {{element.length}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="left">
+    <th mat-header-cell *matHeaderCellDef> Buoni residui </th>
+    <td mat-cell *matCellDef="let element"> {{element.left}} </td>
   </ng-container>
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
-        <mat-icon matTooltip="logout">exit_to_app</mat-icon>
+        <mat-icon matTooltip="dettagli">details</mat-icon>
     </td>
   </ng-container>
 

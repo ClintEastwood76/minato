@@ -13,7 +13,7 @@ export class RechargeComponent implements OnInit {
 
   recharges : Recharge[];
 
-  columnsToDisplay = ['code', 'owner', 'action'];
+  columnsToDisplay = ['code', 'validFrom', 'validThru', 'length', 'left', 'action'];
 
   constructor(private rechargeService: RechargeService) { }
 
