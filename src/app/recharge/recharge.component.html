@@ -13,12 +13,13 @@
 
   <ng-container matColumnDef="validFrom">
     <th mat-header-cell *matHeaderCellDef> Data Emissione </th>
-    <td mat-cell *matCellDef="let element"> {{element.validFrom | date : "dd.MM.y" }}  </td>
+    <td mat-cell *matCellDef="let element"> {{element.validFrom  | date : "dd.MM.y" }}  </td>
   </ng-container>
 
   <ng-container matColumnDef="validThru">
     <th mat-header-cell *matHeaderCellDef> Data Scadenza </th>
-    <td mat-cell *matCellDef="let element"> {{element.validThru | date : "dd.MM.y" }} </td>
+    <td mat-cell *matCellDef="let element"> {{element.validThru  | date : "dd.MM.y" }} </td>
+    <!-- <td mat-cell *matCellDef="let element"> {{element.validThru | date : "dd.MM.y" }} </td> -->
   </ng-container>
 
   <ng-container matColumnDef="length">

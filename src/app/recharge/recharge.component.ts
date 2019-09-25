@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RechargeService } from '../service/recharge.service';
 import { Recharge } from '../domain/recharge';
+import { Page } from '../domain/page';
 
 @Component({
   selector: 'app-recharge',
@@ -13,6 +14,8 @@ export class RechargeComponent implements OnInit {
 
   recharges : Recharge[];
 
+  page : Page;
+
   columnsToDisplay = ['code', 'validFrom', 'validThru', 'length', 'left', 'action'];
 
   constructor(private rechargeService: RechargeService) { }
@@ -22,8 +25,16 @@ export class RechargeComponent implements OnInit {
   }
 
   getRecharges(): void {
-    this.rechargeService.getRecharges()
-      .subscribe(recharges => this.recharges = recharges);
-    }
+    // this.rechargeService.getRecharges()
+    //   .subscribe(recharges => this.recharges = recharges);
+    this.rechargeService.getRechargePage()
+      .subscribe(page => {
+        console.log(page)
+        this.page = page;
+        this.recharges = page.content;
+      });
+
+  }
+
 
 }
