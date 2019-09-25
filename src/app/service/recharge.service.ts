@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Recharge } from '../domain/recharge';
 import { Page } from '../domain/page';
@@ -11,7 +11,6 @@ import { Page } from '../domain/page';
 export class RechargeService {
 
   private rechargesUrl = 'http://localhost:8080/recharges';
-  private rechargesPagedUrl = 'http://localhost:8080/rechargepage';
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +18,12 @@ export class RechargeService {
     return this.http.get<Recharge[]>(this.rechargesUrl);
   }
 
-  getRechargePage(): Observable<Page> {
-    return this.http.get<Page>(this.rechargesPagedUrl);
+  getRechargePage(pageNum, pageSize): Observable<Page> {
+
+    let params = new HttpParams();
+    params = params.append('pagenum', pageNum);
+    params = params.append('pagesize', pageSize);
+
+    return this.http.get<Page>(this.rechargesUrl, {params});
   }
 }
