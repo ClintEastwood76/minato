@@ -26,6 +26,7 @@ import { TransactionDetailComponent } from './transaction-detail/transaction-det
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularMaterialModule } from './angular-material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AngularMaterialModule } from './angular-material.module';
     appRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    FlexLayoutModule
   ],
   entryComponents: [
     ErrorCredentialsComponent,

@@ -1,9 +1,5 @@
-<mat-chip-list aria-label="Fish selection">
-
-  <mat-chip [routerLink]="['/']" color="primary" >Dashboard</mat-chip>
-
-  <mat-chip [routerLink]="['/trxs']" color="primary">Transazioni</mat-chip>
-
-  <mat-chip [routerLink]="['/recharge']" color="primary">Ricariche</mat-chip>
-
-</mat-chip-list>
+<mat-nav-list>
+  <a mat-list-item [routerLink]="['/']" color="primary" >Dashboard</a>
+  <a mat-list-item [routerLink]="['/trxs']" color="primary">Transazioni</a>
+  <a mat-list-item [routerLink]="['/recharge']" color="primary">Ricariche</a>
+</mat-nav-list>
