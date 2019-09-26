@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {PageEvent} from '@angular/material/paginator';
+
 import { RechargeService } from '../service/recharge.service';
 import { Recharge } from '../domain/recharge';
 import { Page } from '../domain/page';
@@ -15,6 +17,11 @@ export class RechargeComponent implements OnInit {
   recharges : Recharge[];
 
   page : Page;
+  length = 100;
+  pageIndex = 0;
+  pageSize = 5;
+  pageSizeOptions: number[] = [5, 10, 20];
+  pageEvent: PageEvent;
 
   columnsToDisplay = ['code', 'validFrom', 'validThru', 'length', 'left', 'action'];
 
@@ -27,13 +34,22 @@ export class RechargeComponent implements OnInit {
   getRecharges(): void {
     // this.rechargeService.getRecharges()
     //   .subscribe(recharges => this.recharges = recharges);
-    this.rechargeService.getRechargePage(1, 3)
+    this.rechargeService.getRechargePage(this.pageIndex, this.pageSize)
       .subscribe(page => {
         this.page = page;
+        this.length = page.totalElements;
         this.recharges = page.content;
       });
 
   }
 
+    setPageSizeOptions(setPageSizeOptionsInput: string) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
 
+    changePage(pageEvent) {
+      this.pageIndex = pageEvent.pageIndex;
+      this.pageSize = pageEvent.pageSize;
+      this.getRecharges();
+    }
 }
