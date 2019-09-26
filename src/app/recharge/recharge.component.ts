@@ -20,7 +20,7 @@ export class RechargeComponent implements OnInit {
   length = 100;
   pageIndex = 0;
   pageSize = 5;
-  pageSizeOptions: number[] = [5, 10, 20];
+  pageSizeOptions: number[] = [5, 10];
   pageEvent: PageEvent;
 
   columnsToDisplay = ['code', 'validFrom', 'validThru', 'length', 'left', 'action'];
@@ -40,16 +40,11 @@ export class RechargeComponent implements OnInit {
         this.length = page.totalElements;
         this.recharges = page.content;
       });
-
   }
 
-    setPageSizeOptions(setPageSizeOptionsInput: string) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-
-    changePage(pageEvent) {
-      this.pageIndex = pageEvent.pageIndex;
-      this.pageSize = pageEvent.pageSize;
-      this.getRecharges();
-    }
+  changePage(pageEvent) {
+    this.pageIndex = pageEvent.pageIndex;
+    this.pageSize = pageEvent.pageSize;
+    this.getRecharges();
+  }
 }
