@@ -32,8 +32,6 @@ export class RechargeComponent implements OnInit {
   }
 
   getRecharges(): void {
-    // this.rechargeService.getRecharges()
-    //   .subscribe(recharges => this.recharges = recharges);
     this.rechargeService.getRechargePage(this.pageIndex, this.pageSize)
       .subscribe(page => {
         this.page = page;
