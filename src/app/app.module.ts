@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MenuComponent,
     TransactionsComponent,
     RechargeComponent,
-    TransactionDetailComponent
+    TransactionDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
