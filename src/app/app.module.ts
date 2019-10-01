@@ -28,6 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './footer/footer.component';
+import { GeomapComponent } from './geomap/geomap.component';
+
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     TransactionsComponent,
     RechargeComponent,
     TransactionDetailComponent,
-    FooterComponent
+    FooterComponent,
+    GeomapComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,10 @@ import { FooterComponent } from './footer/footer.component';
     appRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBoEg0NGE38ROKW-ogIUbyj5rZz1MFn3Yc'
+    })
   ],
   entryComponents: [
     ErrorCredentialsComponent,
