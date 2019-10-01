@@ -1,19 +1,17 @@
-<div class="container"
-  fxLayout="column" fxLayoutGap="5px"
-  >
-  <!-- Testata: sempre presente -->
-  <app-header></app-header>
-  <!-- Se loggato, menu e contenuto -->
-    <mat-sidenav-container *ngIf="isLogged(); else loggedOut">
-      <mat-sidenav mode="side" opened>
-        <app-menu></app-menu>
-      </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<app-header></app-header>
+<mat-sidenav-container *ngIf="isLogged(); else loggedOut">
 
-  <ng-template #loggedOut>
+  <mat-sidenav mode="side" opened>
+    <app-menu></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ng-template #loggedOut flex>
   <app-login></app-login>
-  </ng-template>
-</div>
+</ng-template>
+<mat-toolbar color='primary'>
+  <span>Footer</span>
+</mat-toolbar>

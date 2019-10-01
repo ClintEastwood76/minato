@@ -1,20 +1,18 @@
-<mat-card>
-
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="username" formControlName="username">
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="password" formControlName="password" type="password">
-  </mat-form-field>
-
-  <button mat-raised-button type="submit">Login</button>
-
-  <span *ngIf="wrongCredentials">
-    
-  </span>
-</form>
-
+<mat-card fxFlex="auto">
+  <mat-card-title>Login</mat-card-title>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="username" formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="password" formControlName="password" type="password">
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button type="submit">Login</button>
+    </mat-card-actions>
+    <span *ngIf="wrongCredentials">
+    </span>
+  </form>
 </mat-card>
