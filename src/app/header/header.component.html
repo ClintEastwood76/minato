@@ -9,8 +9,16 @@
   <span class="example-fill-remaining-space"></span>
 
   <span>
-    <button mat-icon-button (click)="logout()" *ngIf="isLogged()">
-      <mat-icon matTooltip="logout">exit_to_app</mat-icon>
+    <mat-menu #appMenu="matMenu" xPosition="before">
+      <button mat-button (click)="logout()" matTooltip="logout">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Esci</span>
+
+      </button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="appMenu" *ngIf="isLogged()">
+      <mat-icon>perm_identity</mat-icon>
     </button>
   </span>
 </mat-toolbar>
