@@ -37,7 +37,6 @@ export class TransactionsComponent implements OnInit {
           this.page = page;
           this.length = page.totalElements;
           this.transactions = page.content;
-          console.log(this.page);
         });
 
   }

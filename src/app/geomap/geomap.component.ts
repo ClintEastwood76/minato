@@ -10,15 +10,23 @@ export class GeomapComponent implements OnInit {
 
   // apiKey = 'AIzaSyBoEg0NGE38ROKW-ogIUbyj5rZz1MFn3Yc';
 
-  latitude = 41.932649;
-  longitude = 12.494347;
+  latitude;
+  longitude;
   zoom = 16;
   mapType = 'roadmap';
 
   constructor(private locationService: LocationService) { }
 
   ngOnInit() {
-    console.log(this.locationService.trackMe());
+    this.getMyPosition();
   }
+
+  getMyPosition(): void {
+    this.locationService.getPosition().subscribe(
+        (pos: Position) => {
+            this.latitude = pos.coords.latitude;
+            this.longitude = pos.coords.longitude;
+        });
+    }
 
 }
