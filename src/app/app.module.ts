@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { TransactionService } from './service/transaction.service';
 import { RechargeService } from './service/recharge.service';
 import { AuthenticationService } from './service/authentication.service';
+import { LocationService } from './service/location.service';
 
 import { LoginComponent, ErrorCredentialsComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -62,7 +63,7 @@ import { AgmCoreModule } from '@agm/core';
   entryComponents: [
     ErrorCredentialsComponent,
   ],
-  providers: [TransactionService, RechargeService, AuthenticationService,
+  providers: [TransactionService, RechargeService, AuthenticationService, LocationService,
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
           // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

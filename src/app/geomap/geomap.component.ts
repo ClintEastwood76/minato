@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from '../service/location.service';
 
 @Component({
   selector: 'app-geomap',
@@ -14,9 +15,10 @@ export class GeomapComponent implements OnInit {
   zoom = 16;
   mapType = 'roadmap';
 
-  constructor() { }
+  constructor(private locationService: LocationService) { }
 
   ngOnInit() {
+    console.log(this.locationService.trackMe());
   }
 
 }
