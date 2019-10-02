@@ -11,6 +11,7 @@ export class GeomapComponent implements OnInit {
 
   latitude = 41.932649;
   longitude = 12.494347;
+  zoom = 16;
   mapType = 'roadmap';
 
   constructor() { }
