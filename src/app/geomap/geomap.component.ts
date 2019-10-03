@@ -29,4 +29,7 @@ export class GeomapComponent implements OnInit {
         });
     }
 
+    mapChange($event) {
+        console.log($event.ga.j);
+      }
 }
