@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../service/location.service';
-import { GoogleMapsAPIWrapper } from '@agm/core';
+import { ShopService } from '../service/shop.service';
+import { Shop } from '../domain/shop';
+
 
 import { map } from 'rxjs/operators';
 @Component({
@@ -16,12 +18,15 @@ export class GeomapComponent implements OnInit {
   longitude;
   zoom = 16;
   mapType = 'roadmap';
+  shopList: Shop[];
 
-  debouncing: booolean = false;
+  debouncing: boolean = false;
   bounds;
 
 
-  constructor(private locationService: LocationService) {}
+  constructor(private locationService: LocationService, private shopService: ShopService) {
+    console.log(shopService);
+  }
 
   ngOnInit() {
     this.getMyPosition();
@@ -42,7 +47,15 @@ export class GeomapComponent implements OnInit {
         var self = this;
         setTimeout(function() {
           self.debouncing = false;
-          console.log('calling ' + self.bounds);
+          /*console.log(self.bounds.na.j);
+          console.log(self.bounds.na.l);
+          console.log(self.bounds.ga.j);
+          console.log(self.bounds.ga.l);*/
+          self.shopService.getShops(self.bounds.ga.j, self.bounds.na.j, self.bounds.ga.l, self.bounds.ga.j)
+          .subscribe(shops => {
+            this.shopList = shops;
+            console.log(this.shopList);
+          });
         }, millis);
       }
     }
