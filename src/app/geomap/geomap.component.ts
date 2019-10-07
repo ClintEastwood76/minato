@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from '../service/location.service';
+import { GoogleMapsAPIWrapper } from '@agm/core';
 
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-geomap',
   templateUrl: './geomap.component.html',
@@ -15,7 +17,11 @@ export class GeomapComponent implements OnInit {
   zoom = 16;
   mapType = 'roadmap';
 
-  constructor(private locationService: LocationService) { }
+  debouncing: booolean = false;
+  bounds;
+
+
+  constructor(private locationService: LocationService) {}
 
   ngOnInit() {
     this.getMyPosition();
@@ -29,7 +35,16 @@ export class GeomapComponent implements OnInit {
         });
     }
 
-    mapChange($event) {
-        console.log($event.ga.j);
+    mapChange($event, millis) {
+      this.bounds = $event;
+      if (this.debouncing == false) {
+        this.debouncing = true;
+        var self = this;
+        setTimeout(function() {
+          self.debouncing = false;
+          console.log('calling ' + self.bounds);
+        }, millis);
       }
+    }
+
 }

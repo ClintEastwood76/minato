@@ -31,7 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './footer/footer.component';
 import { GeomapComponent } from './geomap/geomap.component';
 
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import { AgmCoreModule } from '@agm/core';
   entryComponents: [
     ErrorCredentialsComponent,
   ],
-  providers: [TransactionService, RechargeService, AuthenticationService, LocationService,
+  providers: [TransactionService, RechargeService, AuthenticationService, LocationService, GoogleMapsAPIWrapper,
           { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
           // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
