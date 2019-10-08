@@ -5,4 +5,13 @@
   [zoom]='zoom'
   (boundsChange)="mapChange($event, 1000)"
   >
+  <!-- <agm-marker
+    [latitude]="41.85216"
+    [longitude]="12.49173">
+  </agm-marker> -->
+
+  <agm-marker *ngFor="let shop of shopList"
+    [latitude]="shop.location.x"
+    [longitude]="shop.location.y">
+  </agm-marker>
 </agm-map>

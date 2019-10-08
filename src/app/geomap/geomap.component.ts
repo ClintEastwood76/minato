@@ -24,9 +24,7 @@ export class GeomapComponent implements OnInit {
   bounds;
 
 
-  constructor(private locationService: LocationService, private shopService: ShopService) {
-    console.log(shopService);
-  }
+  constructor(private locationService: LocationService, private shopService: ShopService) {}
 
   ngOnInit() {
     this.getMyPosition();
@@ -53,8 +51,11 @@ export class GeomapComponent implements OnInit {
             self.bounds.ga.l,
             self.bounds.na.l)
           .subscribe(shops => {
-            this.shopList = shops;
-            console.log(this.shopList);
+            self.shopList = shops;
+            console.log(self.shopList);
+            for(let i=0; i<self.shopList.length ; i++){  //How to properly iterate here!!
+                console.log(self.shopList[0].location);
+            }
           });
         }, millis);
       }
