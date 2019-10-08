@@ -16,9 +16,8 @@ export class ShopService {
     let upLeft = up + ',' + left;
     let downRight = down + ',' + right;
     let params = new HttpParams();
-    params = params.append('upLeft', upLeft);
+    params = params.append('upleft', upLeft);
     params = params.append('downright', downRight);
-
     return this.http.get<Shop[]>(this.shopsUrl, {params});
   }
 }

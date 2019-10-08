@@ -47,11 +47,11 @@ export class GeomapComponent implements OnInit {
         var self = this;
         setTimeout(function() {
           self.debouncing = false;
-          /*console.log(self.bounds.na.j);
-          console.log(self.bounds.na.l);
-          console.log(self.bounds.ga.j);
-          console.log(self.bounds.ga.l);*/
-          self.shopService.getShops(self.bounds.ga.j, self.bounds.na.j, self.bounds.ga.l, self.bounds.ga.j)
+          self.shopService.getShops(
+            self.bounds.ga.j,
+            self.bounds.na.j,
+            self.bounds.ga.l,
+            self.bounds.na.l)
           .subscribe(shops => {
             this.shopList = shops;
             console.log(this.shopList);
