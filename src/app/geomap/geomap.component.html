@@ -12,6 +12,11 @@
 
   <agm-marker *ngFor="let shop of shopList"
     [latitude]="shop.location.x"
-    [longitude]="shop.location.y">
+    [longitude]="shop.location.y"
+    [title]="shop.name">
+    <agm-info-window>
+      <h3>{{shop.name}}</h3>
+      {{shop.address}}
+    </agm-info-window>
   </agm-marker>
 </agm-map>
