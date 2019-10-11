@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 
 // import { environment } from '@environments/environment';
 import { User } from '../domain/user';
@@ -14,6 +14,9 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
+  private authUrl = 'http://localhost:8080/authenticate';
+  private infoUrl = 'http://localhost:8080/user';
+
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -24,10 +27,8 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-      //return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
-      return this.http.post<any>('http://localhost:8080/authenticate', { username, password })
+      return this.http.post<any>(this.authUrl, { username, password })
         .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
                 user.username = username;
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 this.currentUserSubject.next(user);

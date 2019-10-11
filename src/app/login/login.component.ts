@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
         data => {
           this.wrongCredentials = false;
-          console.log('data ' + data);
+          console.log('data ' + JSON.stringify(data));
         },
         error => {
           if (error.status === 401) {
