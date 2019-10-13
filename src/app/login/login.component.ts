@@ -31,33 +31,18 @@ export class LoginComponent implements OnInit {
     this.wrongCredentials = false;
   }
 
-/*
   onSubmit(loginData) {
     this.authenticationService.login(loginData.username, loginData.password)
-    .pipe(first())
-    .subscribe(
-        data => {
-          this.wrongCredentials = false;
-          console.log('data ' + JSON.stringify(data));
-        },
-        error => {
-          if (error.status === 401) {
-              this.wrongCredentials = true;
-              this.openSnackBar();
-          }
-          // console.log('error ' + JSON.stringify(error));
-          this.errorMessage = error;
+    .subscribe(data => {},
+      error => {
+        if (error.status === 401) {
+            this.wrongCredentials = true;
+            this.openSnackBar();
+        }
+        this.errorMessage = error;
 
-        });
+      });
     this.loginForm.reset();
-  }
-*/
-
-  onSubmit(loginData) {
-    console.log('logging in...');
-    this.authenticationService.newLogin(loginData.username, loginData.password)
-    .subscribe(data => {});
-
   }
 
   openSnackBar() {

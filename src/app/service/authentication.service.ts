@@ -29,39 +29,27 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-      return this.http.post<any>(this.authUrl, { username, password })
-        .pipe(map(user => {
-                user.username = username;
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
-    }
-
-    newLogin(username: string, password: string) {
-      return this.http.post<any>(this.authUrl, { username, password })
-      .pipe(
-        map(user => {
-          console.log('ce lho???' + JSON.stringify(user))
-          sessionStorage.setItem('currentUser', JSON.stringify(user));
-          this.tempToken = user.token;
-          console.log(this.tempToken);
-        }),
-        mergeMap(user =>
-          this.http.get<User>(this.infoUrl)
-          .pipe(
-            map(userDetail => {
-              userDetail.token = this.tempToken;
-              sessionStorage.setItem('currentUser', JSON.stringify(userDetail));
-            })
-          )
+    return this.http.post<any>(this.authUrl, { username, password })
+    .pipe(
+      map(user => {
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
+        this.tempToken = user.token;
+      }),
+      mergeMap(user =>
+        this.http.get<User>(this.infoUrl)
+        .pipe(
+          map(userDetail => {
+            userDetail.token = this.tempToken;
+            sessionStorage.setItem('currentUser', JSON.stringify(userDetail));
+          })
         )
-      );
-    }
+      )
+    );
+  }
 
-    logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
-    }
+  logout() {
+      // remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
+      this.currentUserSubject.next(null);
+  }
 }

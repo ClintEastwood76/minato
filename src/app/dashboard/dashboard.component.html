@@ -1,3 +1,18 @@
-<p>
-  dashboard works!
-</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <div class="example-container">
+      <mat-form-field class="example-full-width">
+        <input readonly matInput placeholder="nome e cognome" value="{{user.firstName}} {{user.lastName}}">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input readonly matInput placeholder="azienda" value="{{user.companyName}}">
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2">
+  </mat-grid-tile>
+
+</mat-grid-list>
