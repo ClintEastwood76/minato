@@ -14,7 +14,7 @@ export class AppComponent {
   isLogged() {
     // return localStorage.getItem('currentUser').token != null;
     // let logged = localStorage.getItem('currentUser');
-    let user = JSON.parse(localStorage.getItem('currentUser'));
+    let user = JSON.parse(sessionStorage.getItem('currentUser'));
     return (user != null && user.token != null);
   }
 }

@@ -14,12 +14,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   isLogged() {
-    let user = JSON.parse(localStorage.getItem('currentUser'));
+    let user = JSON.parse(sessionStorage.getItem('currentUser'));
     return (user != null && user.token != null);
   }
 
   logout() {
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
 }

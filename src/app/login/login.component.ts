@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     this.wrongCredentials = false;
   }
 
+/*
   onSubmit(loginData) {
     this.authenticationService.login(loginData.username, loginData.password)
     .pipe(first())
@@ -49,6 +50,14 @@ export class LoginComponent implements OnInit {
 
         });
     this.loginForm.reset();
+  }
+*/
+
+  onSubmit(loginData) {
+    console.log('logging in...');
+    this.authenticationService.newLogin(loginData.username, loginData.password)
+    .subscribe(data => {});
+
   }
 
   openSnackBar() {
