@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Page } from '../domain/page';
 import { PageEvent } from '@angular/material/paginator';
 
 import { TransactionService } from '../service/transaction.service';
 import { Transaction } from '../domain/transaction';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-transactions',
@@ -25,7 +31,8 @@ export class TransactionsComponent implements OnInit {
   columnsToDisplay = ['date', 'desc', 'action'];
 
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getTransactions();
@@ -45,6 +52,37 @@ export class TransactionsComponent implements OnInit {
     this.pageIndex = pageEvent.pageIndex;
     this.pageSize = pageEvent.pageSize;
     this.getTransactions();
+  }
+
+  openDetails(): void {
+    console.log('details');
+    const dialogRef = this.dialog.open(TransactionDetailDialog, {
+        width: '250px',
+        data: {}
+      });
+    //
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   this.animal = result;
+    //});
+  }
+
+}
+
+@Component({
+  selector: 'transaction-detail-dialog',
+  templateUrl: 'transaction-detail-dialog.html',
+})
+export class TransactionDetailDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<TransactionDetailDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+      console.log('ciao');
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

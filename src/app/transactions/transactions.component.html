@@ -12,7 +12,8 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
-        <mat-icon matTooltip="dettagli" routerLink="/trx/{{element._id}}">
+        <!-- <mat-icon matTooltip="dettagli" routerLink="/trx/{{element._id}}"> -->
+        <mat-icon matTooltip="dettagli" (click)="openDetails()">
             description
         </mat-icon>
     </td>
