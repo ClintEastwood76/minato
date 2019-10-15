@@ -13,7 +13,7 @@
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
         <!-- <mat-icon matTooltip="dettagli" routerLink="/trx/{{element._id}}"> -->
-        <mat-icon matTooltip="dettagli" (click)="openDetails()">
+        <mat-icon matTooltip="dettagli" (click)="openDetails(element)">
             description
         </mat-icon>
     </td>

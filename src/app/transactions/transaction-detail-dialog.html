@@ -1,12 +1,46 @@
-<h1 mat-dialog-title>Hi!!!</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <!-- <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field> -->
-</div>
+   <!-- {{data.element._id}} -->
 
-<div mat-dialog-actions>
-  <!-- <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  <mat-card class="example-card">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>Dettaglio transazione</mat-card-title>
+    <mat-card-subtitle>{{data.element.date | date: long}} alle {{data.element.date | date: shortTime}} presso {{data.element.shop.name}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+prima
+    <agm-map
+      [latitude]='0'
+      [longitude]='0'
+      [mapTypeId]='roadMap'
+      [zoom]='16'>
+      <!-- <agm-marker
+        [latitude]="41.85216"
+        [longitude]="12.49173">
+      </agm-marker> -->
+  <!--
+      <agm-marker *ngFor="let shop of shopList"
+        [latitude]="shop.location.x"
+        [longitude]="shop.location.y"
+        [title]="shop.name"
+        >
+        <agm-info-window>
+          <h3>{{shop.name}}</h3>
+          {{shop.address}}
+        </agm-info-window>
+      </agm-marker> -->
+    </agm-map>
+    dopo
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
 </div>

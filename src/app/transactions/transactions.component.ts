@@ -8,8 +8,7 @@ import { TransactionService } from '../service/transaction.service';
 import { Transaction } from '../domain/transaction';
 
 export interface DialogData {
-  animal: string;
-  name: string;
+  element;
 }
 
 @Component({
@@ -54,11 +53,11 @@ export class TransactionsComponent implements OnInit {
     this.getTransactions();
   }
 
-  openDetails(): void {
-    console.log('details');
+  openDetails(element): void {
+    // console.log('details ' + JSON.stringify(element));
     const dialogRef = this.dialog.open(TransactionDetailDialog, {
-        width: '250px',
-        data: {}
+        width: '400px',
+        data: {element}
       });
     //
     // dialogRef.afterClosed().subscribe(result => {
@@ -72,13 +71,14 @@ export class TransactionsComponent implements OnInit {
 @Component({
   selector: 'transaction-detail-dialog',
   templateUrl: 'transaction-detail-dialog.html',
+  styleUrls: ['./transactions.component.css']
 })
 export class TransactionDetailDialog {
 
   constructor(
     public dialogRef: MatDialogRef<TransactionDetailDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      console.log('ciao');
+      console.log('ciao' + JSON.stringify(data));
     }
 
   onNoClick(): void {
