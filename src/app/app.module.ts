@@ -17,7 +17,7 @@ import { ShopService } from './service/shop.service';
 import { LoginComponent, ErrorCredentialsComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenuComponent } from './menu/menu.component';
-import { TransactionsComponent, TransactionDetailDialog } from './transactions/transactions.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 import { RechargeComponent } from './recharge/recharge.component';
 
 import { JwtInterceptor } from './helpers/jwt-interceptor';
@@ -43,7 +43,6 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
     DashboardComponent,
     MenuComponent,
     TransactionsComponent,
-    TransactionDetailDialog,
     RechargeComponent,
     TransactionDetailComponent,
     FooterComponent,
@@ -64,7 +63,7 @@ import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
   ],
   entryComponents: [
     ErrorCredentialsComponent,
-    TransactionDetailDialog
+    TransactionDetailComponent
   ],
 
   providers: [TransactionService,

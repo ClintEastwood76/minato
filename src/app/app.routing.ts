@@ -9,7 +9,7 @@ import { GeomapComponent } from './geomap/geomap.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'trxs', component: TransactionsComponent },
-  { path: 'trx/:id', component: TransactionDetailComponent },
+  // { path: 'trx/:id', component: TransactionDetailComponent },
   { path: 'recharge', component: RechargeComponent },
   { path: 'geomap', component: GeomapComponent },
   { path: '**', redirectTo: '' }

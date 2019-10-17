@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, AfterViewInit, ViewChild  } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Page } from '../domain/page';
@@ -6,6 +6,10 @@ import { PageEvent } from '@angular/material/paginator';
 
 import { TransactionService } from '../service/transaction.service';
 import { Transaction } from '../domain/transaction';
+
+import { TransactionDetailComponent } from '../transaction-detail/transaction-detail.component';
+
+import { AgmMap } from '@agm/core';
 
 export interface DialogData {
   element;
@@ -54,35 +58,15 @@ export class TransactionsComponent implements OnInit {
   }
 
   openDetails(element): void {
-    // console.log('details ' + JSON.stringify(element));
-    const dialogRef = this.dialog.open(TransactionDetailDialog, {
-        width: '400px',
-        data: {element}
-      });
-    //
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    //});
-  }
+    console.log('e mo so cazzi!');
 
-}
-
-@Component({
-  selector: 'transaction-detail-dialog',
-  templateUrl: 'transaction-detail-dialog.html',
-  styleUrls: ['./transactions.component.css']
-})
-export class TransactionDetailDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<TransactionDetailDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      console.log('ciao' + JSON.stringify(data));
-    }
-
-  onNoClick(): void {
-    this.dialogRef.close();
+    const dialogRef = this.dialog.open(TransactionDetailComponent, {
+      width: '70vw',
+      maxHeight: '90vh'
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

@@ -11,25 +11,23 @@ import { TransactionService } from '../service/transaction.service';
 })
 export class TransactionDetailComponent implements OnInit {
 
-  transaction;
+  // transaction;
 
   constructor(
-    private transactionService: TransactionService,
-    private route: ActivatedRoute,
-    private location: Location) {
+    // private transactionService: TransactionService,
+    // private route: ActivatedRoute,
+    // private location: Location
+  ) {
 
   }
 
   ngOnInit() {
-    this.getTransaction()
+    // this.getTransaction()
   }
+  //
+  // getTransaction(): void {
+  //   // todo: usare il servic e e caricare la transazione
+  //   this.transaction = this.route.snapshot.paramMap.get('id');
+  // }
 
-  getTransaction(): void {
-    // todo: usare il servic e e caricare la transazione
-    this.transaction = this.route.snapshot.paramMap.get('id');
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
 }
