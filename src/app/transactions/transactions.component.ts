@@ -61,8 +61,8 @@ export class TransactionsComponent implements OnInit {
     console.log('e mo so cazzi!');
 
     const dialogRef = this.dialog.open(TransactionDetailComponent, {
-      width: '70vw',
-      maxHeight: '90vh'
+      width: '350px',
+      data: Object.assign({}, element)
     })
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

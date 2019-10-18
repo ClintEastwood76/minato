@@ -1,2 +1,9 @@
-<agm-map [latitude]=51.678418 [longitude]=7.809007>
+<agm-map
+  [latitude]="transaction.shop.location.x"
+  [longitude]="transaction.shop.location.y"
+  [zoom]="16"
+>
+  <agm-marker [latitude]="transaction.shop.location.x" [longitude]="transaction.shop.location.y">
+  </agm-marker>
 </agm-map>
+{{transaction.desc}}
