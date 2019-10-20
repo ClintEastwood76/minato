@@ -1,9 +1,19 @@
-<agm-map
-  [latitude]="transaction.shop.location.x"
-  [longitude]="transaction.shop.location.y"
-  [zoom]="16"
->
-  <agm-marker [latitude]="transaction.shop.location.x" [longitude]="transaction.shop.location.y">
-  </agm-marker>
-</agm-map>
-{{transaction.desc}}
+
+<mat-card class="example-card">
+  <mat-card-header color="primary">
+    <mat-card-title>Transazione del {{transaction.date | date:'dd/MM/yyyy HH:mm'}}</mat-card-title>
+    <mat-card-subtitle>{{transaction.shop.name}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <agm-map
+      [latitude]="transaction.shop.location.x"
+      [longitude]="transaction.shop.location.y"
+      [zoom]="16"
+    >
+      <agm-marker [latitude]="transaction.shop.location.x" [longitude]="transaction.shop.location.y">
+      </agm-marker>
+    </agm-map>
+  </mat-card-content>
+
+</mat-card>

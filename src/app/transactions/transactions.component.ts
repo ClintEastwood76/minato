@@ -31,7 +31,8 @@ export class TransactionsComponent implements OnInit {
   pageSizeOptions: number[] = [5, 10];
   pageEvent: PageEvent;
 
-  columnsToDisplay = ['date', 'desc', 'action'];
+  // columnsToDisplay = ['where', 'date', 'impt', 'nummTickets', 'desc', 'action'];
+  columnsToDisplay = ['impt', 'tickets', 'where', 'date', 'action'];
 
 
   constructor(private transactionService: TransactionService,
@@ -61,7 +62,7 @@ export class TransactionsComponent implements OnInit {
     console.log('e mo so cazzi!');
 
     const dialogRef = this.dialog.open(TransactionDetailComponent, {
-      width: '350px',
+      width: '450px',
       data: Object.assign({}, element)
     })
     dialogRef.afterClosed().subscribe(result => {
