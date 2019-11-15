@@ -34,6 +34,12 @@ import { GeomapComponent } from './geomap/geomap.component';
 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
+import { LOCALE_ID } from '@angular/core';
+
+
+import { registerLocaleData } from '@angular/common';
+import localeIt from '@angular/common/locales/it';
+
 @NgModule({
   declarations: [
     AppComponent,
